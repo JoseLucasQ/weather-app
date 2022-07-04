@@ -1,4 +1,4 @@
-let appId = 'b406769f296b65fced5166dcd11b0b27';
+let appId = 'b4046769f22916b65fc1ed51666d8cd11b90b27';
 let units = 'metric';
 let searchMethod = 'q';
 
