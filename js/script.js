@@ -1,12 +1,12 @@
-let appId = 'b4046769f22916b65fc1ed51666d8cd11b90b27';
+let appId = config.API_TOKEN;
 let units = 'metric';
 let searchMethod = 'q';
 
 //there should be a function here to allow the code to handle zip codes, but i will not use it because i think zip codes
 //only work if the APP was exclusively for the USA, which is not the case
-
+document.body.style.backgroundImage = "url('img/default.jpg')";
 function searchWeather(searchTerm){
-    fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`)
         .then((result) => {
             return result.json();
         }).then((res) => {
@@ -79,3 +79,13 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         searchWeather(searchTerm);
     }
 })
+
+var input = document.getElementById("searchInput");
+
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("searchBtn").click();
+    }
+})
+
